@@ -1,0 +1,18 @@
+{
+  "name": "spotify_api-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "HOST=127.0.0.1 react-scripts start",
+    "build": "react-scripts build",
+    "server": "HOST=127.0.0.1 node server",
+    "dev": "run-p server start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "npm-run-all": "^4.1.5"
+  }
+}
