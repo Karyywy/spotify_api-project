@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "HOST=127.0.0.1 react-scripts start",
+    "start": "cross-env HOST=127.0.0.1 react-scripts start",
     "build": "react-scripts build",
-    "server": "cross-env HOST=127.0.0.1 node server",
+    "server": "cross-env HOST=127.0.0.1 node server/index.js",
     "dev": "run-p server start"
   },
   "author": "",
