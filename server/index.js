@@ -1,7 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const request = require('request')
-// const open = require('open')
+const open = require('open')
 
 const port = 5000;
 
@@ -13,11 +13,10 @@ var spotify_redirect_uri = "http://127.0.0.1:3000/auth/callback";
 
 let access_token = '';
 
-var generateRandomString = function (length) {
-  var text = '';
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (var i = 0; i < length; i++) {
+const generateRandomString = (length) => {
+  let text = '';
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return text;
@@ -34,7 +33,7 @@ app.get('/auth/login', (req, res) => {
                 user-read-email \
                user-read-private"
 
-  var state = generateRandomString(16);
+  var state = "spotify_auth_state";
 
   var auth_query_parameters = new URLSearchParams({
     response_type: "code",
@@ -83,6 +82,6 @@ app.get('/auth/token', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Listening at http://127.0.0.1:${port}`);
-  // open(`http://127.0.0.1:${port}/auth/login`)
+  open(`http://127.0.0.1:${port}/auth/login`)
 })
 
